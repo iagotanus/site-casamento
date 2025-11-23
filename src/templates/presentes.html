@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2 class="text-2xl font-semibold text-center mb-4">Lista de Presentes</h2>
+<p class="text-center mb-6">Você pode nos ajudar escolhendo um dos presentes abaixo ❤️</p>
+
+<ul class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Cota Viagem de Lua de Mel</h3>
+        <a href="https://pix.com/lua_de_mel" target="_blank" class="text-pink-500 underline">Contribuir</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Jogo de Panelas</h3>
+        <a href="https://lista.com/panelas" target="_blank" class="text-pink-500 underline">Comprar</a>
+    </li>
+</ul>
+{% endblock %}
