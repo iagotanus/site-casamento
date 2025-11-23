@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casamento Iago & Noiva</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script>
+        // Script da contagem regressiva
+        document.addEventListener("DOMContentLoaded", function() {
+            const casamentoData = new Date("Nov 20, 2026 00:00:00").getTime();
+
+            function atualizarContagem() {
+                const agora = new Date().getTime();
+                const distancia = casamentoData - agora;
+
+                const dias = Math.floor(distancia / (1000 * 60 * 60 * 24));
+                const horas = Math.floor((distancia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
+                const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
+
+                document.getElementById("contador").innerHTML =
+                    dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+
+                if (distancia < 0) {
+                    document.getElementById("contador").innerHTML = "🎉 O grande dia chegou! 🎉";
+                }
+            }
+
+            setInterval(atualizarContagem, 1000);
+        });
+    </script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- HERO SECTION COM IMAGEM DE FUNDO -->
+    <header class="relative h-screen bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/casal.jpg') }}');">
+        <!-- camada escura para dar contraste -->
+        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+        <!-- Conteúdo por cima -->
+        <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
+            <h1 class="text-4xl md:text-6xl font-bold">💍 Giovanna e Iago 💍</h1>
+            <p class="mt-4 text-lg md:text-2xl">Sejam bem-vindos ao nosso site de casamento!</p>
+
+            <!-- Contagem regressiva -->
+            <div class="mt-6 text-2xl font-semibold bg-pink-500 bg-opacity-70 px-6 py-3 rounded-lg shadow-lg">
+                <span id="contador">Carregando...</span>
+            </div>
+
+            <!-- Navegação -->
+            <nav class="mt-6 space-x-4">
+                <a href="/" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Início</a>
+                <a href="/rsvp" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Confirme sua presença</a>
+                <a href="/presentes" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Lista de presentes</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- CONTEÚDO DAS PÁGINAS -->
+    <main class="container mx-auto p-6">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-pink-200 text-center p-4 mt-6">
+        <p>Feito com ❤️ para nosso grande dia</p>
+    </footer>
+</body>
+</html>
