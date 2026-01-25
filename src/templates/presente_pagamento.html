@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-md mx-auto bg-white p-8 rounded-xl shadow-lg mt-10 text-center">
+    <h2 class="text-2xl font-bold text-pink-600 mb-4">
+        🎁 Obrigado pelo presente!
+    </h2>
+
+    <p class="text-lg mb-4">
+        Valor selecionado:
+        <strong>R$ {{ valor }},00</strong>
+    </p>
+
+    <p class="mb-6 text-gray-600">
+        Escaneie o QR Code abaixo para realizar a transferência via PIX 💖
+    </p>
+
+    <img
+        src="{{ url_for('static', filename='images/presentes/qr-codes/' + qr) }}"
+        alt="QR Code PIX"
+        class="mx-auto w-64 h-64 object-contain"
+    >
+
+    <p class="mt-6 text-sm text-gray-500">
+        Após o pagamento, não é necessário enviar comprovante.
+        Já ficaremos muito felizes com seu carinho ❤️
+    </p>
+</div>
+
+{% endblock %}

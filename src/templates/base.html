@@ -3,11 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casamento Iago & Noiva</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <title>Casamento Giovanna & Iago</title>
+
+    <!-- Google Font Brush -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+        rel="stylesheet"
+    />
+
+    <!-- Tailwind CSS -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+    >
+
+    <!-- Fonte personalizada -->
+    <style>
+        .font-brush {
+            font-family: 'Pacifico', cursive;
+        }
+    </style>
+
+    <!-- Script da contagem regressiva -->
     <script>
-        // Script da contagem regressiva
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const casamentoData = new Date("Nov 20, 2026 00:00:00").getTime();
 
             function atualizarContagem() {
@@ -19,29 +38,44 @@
                 const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
                 const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-                document.getElementById("contador").innerHTML =
-                    dias + "d " + horas + "h " + minutos + "m " + segundos + "s ";
+                const contador = document.getElementById("contador");
+                if (!contador) return;
 
                 if (distancia < 0) {
-                    document.getElementById("contador").innerHTML = "🎉 O grande dia chegou! 🎉";
+                    contador.innerHTML = "🎉 O grande dia chegou! 🎉";
+                } else {
+                    contador.innerHTML =
+                        dias + "d " + horas + "h " + minutos + "m " + segundos + "s";
                 }
             }
 
+            atualizarContagem();
             setInterval(atualizarContagem, 1000);
         });
     </script>
 </head>
+
 <body class="bg-gray-100 text-gray-800">
 
-    <!-- HERO SECTION COM IMAGEM DE FUNDO -->
-    <header class="relative h-screen bg-cover bg-center" style="background-image: url('{{ url_for('static', filename='images/casal.jpg') }}');">
-        <!-- camada escura para dar contraste -->
+    <!-- HERO / HEADER -->
+    <header
+        class="relative bg-cover bg-center"
+        style="height: 80vh; background-image: url('{{ url_for('static', filename='images/casal.jpg') }}');"
+    >
+        <!-- Overlay escuro -->
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
 
-        <!-- Conteúdo por cima -->
+        <!-- Conteúdo -->
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
-            <h1 class="text-4xl md:text-6xl font-bold">💍 Giovanna e Iago 💍</h1>
-            <p class="mt-4 text-lg md:text-2xl">Sejam bem-vindos ao nosso site de casamento!</p>
+
+            <!-- Nome do casal com fonte brush -->
+            <h1 class="text-6xl md:text-7xl font-brush drop-shadow-lg">
+                Giovanna e Iago
+            </h1>
+
+            <p class="mt-4 text-lg md:text-2xl">
+                Sejam bem-vindos ao nosso site de casamento!
+            </p>
 
             <!-- Contagem regressiva -->
             <div class="mt-6 text-2xl font-semibold bg-pink-500 bg-opacity-70 px-6 py-3 rounded-lg shadow-lg">
@@ -49,11 +83,19 @@
             </div>
 
             <!-- Navegação -->
-            <nav class="mt-6 space-x-4">
-                <a href="/" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Início</a>
-                <a href="/rsvp" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Confirme sua presença</a>
-                <a href="/presentes" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Lista de presentes</a>
-                <a href="/padrinhos" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">Padrinhos</a>
+            <nav class="mt-6 flex flex-wrap justify-center gap-3">
+                <a href="/" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">
+                    Início
+                </a>
+                <a href="/rsvp" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">
+                    Confirme sua presença
+                </a>
+                <a href="/presentes" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">
+                    Lista de presentes
+                </a>
+                <a href="/padrinhos" class="bg-pink-500 hover:bg-pink-600 px-4 py-2 rounded-lg shadow">
+                    Padrinhos
+                </a>
             </nav>
         </div>
     </header>
@@ -63,8 +105,10 @@
         {% block content %}{% endblock %}
     </main>
 
+    <!-- FOOTER -->
     <footer class="bg-pink-200 text-center p-4 mt-6">
         <p>Feito com ❤️ para nosso grande dia</p>
     </footer>
+
 </body>
 </html>

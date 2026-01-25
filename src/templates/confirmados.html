@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow mt-8">
+    <div class="flex flex-wrap justify-between items-center mb-4 gap-2">
+        <h2 class="text-2xl font-semibold">Convidados Confirmados</h2>
+
+        <div class="space-x-3">
+            <a href="/confirmados/excel"
+            class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg shadow">
+                📥 Baixar Excel
+            </a>
+
+            <a href="/logout" class="text-red-500 underline">
+                Sair
+            </a>
+        </div>
+    </div>
+
+    <table class="w-full border-collapse border">
+        <thead>
+            <tr class="bg-gray-200">
+                <th class="border p-2 text-left">#</th>
+                <th class="border p-2 text-left">Nome</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for c in confirmacoes %}
+            <tr>
+                <td class="border p-2">{{ loop.index }}</td>
+                <td class="border p-2">{{ c.nome }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    {% if confirmacoes|length == 0 %}
+        <p class="text-center mt-4 text-gray-500">Nenhuma confirmação ainda.</p>
+    {% endif %}
+</div>
+
+{% endblock %}
