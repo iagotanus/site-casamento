@@ -22,6 +22,7 @@
             <tr class="bg-gray-200">
                 <th class="border p-2 text-left">#</th>
                 <th class="border p-2 text-left">Nome</th>
+                <th class="border p-2 text-left">Status</th>
             </tr>
         </thead>
         <tbody>
@@ -29,6 +30,13 @@
             <tr>
                 <td class="border p-2">{{ loop.index }}</td>
                 <td class="border p-2">{{ c.nome }}</td>
+                <td class="border p-2">
+                    {% if c.presenca == "sim" %}
+                        <span class="text-green-600 font-semibold">Confirmado</span>
+                    {% else %}
+                        <span class="text-red-500 font-semibold">Não irá</span>
+                    {% endif %}
+                </td>
             </tr>
             {% endfor %}
         </tbody>

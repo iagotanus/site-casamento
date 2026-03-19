@@ -24,6 +24,7 @@ def index():
 def rsvp():
     if request.method == "POST":
         nome = request.form.get("nome")
+        presenca = request.form.get("presenca")
 
         convidado = next(
             (c for c in convidados_registrados if c["nome"] == nome),
@@ -31,13 +32,35 @@ def rsvp():
         )
 
         if convidado:
-            if nome not in [c["nome"] for c in confirmacoes]:
-                confirmacoes.append({"nome": nome})
-                flash("Presença confirmada com sucesso! 🎉", "success")
+            # 🔍 verifica se já existe resposta
+            existente = next(
+                (c for c in confirmacoes if c["nome"] == nome),
+                None
+            )
+
+            if existente:
+                # 🔄 ATUALIZA resposta
+                existente["presenca"] = presenca
+
+                if presenca == "sim":
+                    flash("Sua presença foi atualizada para CONFIRMADA 🎉", "success")
+                else:
+                    flash("Sua resposta foi atualizada. Sentiremos sua falta! 💔", "info")
+
             else:
-                flash("Presença já confirmada anteriormente.", "info")
+                # 🆕 NOVA resposta
+                confirmacoes.append({
+                    "nome": nome,
+                    "presenca": presenca
+                })
+
+                if presenca == "sim":
+                    flash("Presença confirmada com sucesso! 🎉", "success")
+                else:
+                    flash("Sentiremos sua falta! 💔", "info")
+
         else:
-            flash("Nome não confere.", "error")
+            flash("Nome e não confere.", "error")
 
         return redirect(url_for("rsvp"))
 
