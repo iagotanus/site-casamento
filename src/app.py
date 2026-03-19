@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash, session, send_file
 import pandas as pd
 from io import BytesIO
+import os
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "fallback")
@@ -144,8 +145,6 @@ def presente_pagamento(valor):
         valor=valor,
         qr=qr
     )
-
-import os
 
 if __name__ == "__main__":
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
