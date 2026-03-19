@@ -5,12 +5,172 @@
 
 <ul class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
     <li class="p-4 bg-white shadow rounded-lg text-center">
-        <h3 class="font-semibold text-lg">Cota Viagem de Lua de Mel</h3>
-        <a href="https://pix.com/lua_de_mel" target="_blank" class="text-pink-500 underline">Contribuir</a>
+        <h3 class="font-semibold text-lg">Contribuição para Viagem de Lua de Mel dos sonhos</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/lua-de-mel-dos-sonhos.jfif') }}"
+                alt="Lua de Mel"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 700,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=700) }}" class="text-pink-500 underline">Contribuir</a>
     </li>
     <li class="p-4 bg-white shadow rounded-lg text-center">
-        <h3 class="font-semibold text-lg">Jogo de Panelas</h3>
-        <a href="https://lista.com/panelas" target="_blank" class="text-pink-500 underline">Comprar</a>
+        <h3 class="font-semibold text-lg">Caipirinhas na Praia (porque ninguém é de ferro) 🍹</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/caipirinhas-na-praia.jpg') }}"
+                alt="Caipirinha na Praia"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 100,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=100) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Jantar Romântico sem Olhar o Preço 🍝🍷</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/jantar-romantico.png') }}"
+                alt="Jantar Romântico"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 500,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=500) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Passeio Que Vai Virar Foto no Instagram 📸</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/passeio.jpg') }}"
+                alt="Passeio Fotográfico"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 125,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=125) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Café da Manhã de Hotel Chique 🥐</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/cafe-manha-hotel.jpg') }}"
+                alt="Café da Manhã de Hotel Chique"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 100,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=100) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Massagem Pós-Casamento (necessária) 💆‍♀️💆‍♂️</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/massagem.webp') }}"
+                alt="Massagem Pós-Casamento"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 400,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=400) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Lava-Louças do Casal (pra nunca mais brigar pela louça) 😅</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/lava-loucas.jpg') }}"
+                alt="Lava-Louças do Casal"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 700,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=700) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Panela Que Não Gruda (e salva o jantar) 🍳</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/panela-nao-gruda.webp') }}"
+                alt="Panela Que Não Gruda"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 125,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=125) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Jogo de Pratos Oficial da Família 🍽️</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/jogo-pratos.webp') }}"
+                alt="Jogo de Pratos Oficial da Família"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 350,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=350) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Travesseiros do Sono Profundo 😴</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/travesseiros.jfif') }}"
+                alt="Travesseiros do Sono Profundo"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 150,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=150) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Ar-condicionado Emocional do Casal ❄️😂</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/ar-condicionado.webp') }}"
+                alt="Ar-condicionado Emocional do Casal"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 650,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=650) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Help nas passagens de avião 🛫</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/passagens.webp') }}"
+                alt="Help nas passagens de avião"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 300,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=300) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Transfer do aeroporto para facilitar o processo 🚙</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/transfer.jpeg') }}"
+                alt="Transfer do aeroporto para facilitar o processo"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 200,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=200) }}" class="text-pink-500 underline">Comprar</a>
+    </li>
+    <li class="p-4 bg-white shadow rounded-lg text-center">
+        <h3 class="font-semibold text-lg">Copos Pra Visitas Que Bebem Tudo 🥂</h3>
+        <div>   
+            <img
+                src="{{ url_for('static', filename='images/presentes/copos.webp') }}"
+                alt="Copos Pra Visitas Que Bebem Tudo"
+                class="mx-auto mt-4 mb-4 rounded-lg shadow-md object-cover w-full h-48"
+            >
+        </div>
+        <h3 class="font-semibold text-lg">R$ 300,00</h3>
+        <a href="{{ url_for('presente_pagamento', valor=300) }}" class="text-pink-500 underline">Comprar</a>
     </li>
 </ul>
 {% endblock %}

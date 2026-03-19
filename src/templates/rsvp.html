@@ -3,17 +3,16 @@
 
 <h2 class="text-2xl font-semibold text-center mb-4">Confirme sua presença</h2>
 
-<!-- MENSAGENS -->
 <div class="max-w-md mx-auto mb-4">
     {% with messages = get_flashed_messages(with_categories=true) %}
-        {% if messages %}
-            {% for category, msg in messages %}
-                <div class="p-3 mb-2 text-white rounded
-                    {% if category == 'success' %} bg-green-500 {% else %} bg-red-500 {% endif %}">
-                    {{ msg }}
-                </div>
-            {% endfor %}
-        {% endif %}
+        {% for category, msg in messages %}
+            <div class="p-3 mb-2 text-white rounded
+                {% if category == 'success' %} bg-green-500
+                {% elif category == 'info' %} bg-blue-500
+                {% else %} bg-red-500 {% endif %}">
+                {{ msg }}
+            </div>
+        {% endfor %}
     {% endwith %}
 </div>
 
@@ -27,17 +26,28 @@
         {% endfor %}
     </select>
 
-    <label class="block mb-2">Digite seu CPF:</label>
-    <input type="text" name="cpf" maxlength="11" required class="w-full border p-2 mb-4" placeholder="Apenas números">
+    <!-- BOTÕES -->
+    <div class="flex flex-col gap-3">
+        
+        <button 
+            type="submit"
+            name="presenca"
+            value="sim"
+            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 rounded-lg shadow font-semibold"
+        >
+            Confirmar presença 🎉
+        </button>
 
-    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 text-white py-2 rounded-lg">Confirmar Presença</button>
+        <button 
+            type="submit"
+            name="presenca"
+            value="nao"
+            class="w-full bg-red-500 hover:bg-red-600 text-white py-3 rounded-lg shadow font-semibold"
+        >
+            Não poderei comparecer 😢
+        </button>
+
+    </div>
 </form>
-
-<h3 class="text-xl mt-6 mb-2">Confirmações recebidas:</h3>
-<ul class="list-disc ml-6">
-    {% for c in confirmacoes %}
-        <li>{{ c.nome }}</li>
-    {% endfor %}
-</ul>
 
 {% endblock %}
