@@ -3,7 +3,7 @@ import pandas as pd
 from io import BytesIO
 
 app = Flask(__name__)
-app.secret_key = "chave-super-secreta"
+app.secret_key = os.environ.get("SECRET_KEY", "fallback")
 
 # SENHA DE ACESSO À PÁGINA DE CONFIRMADOS
 SENHA_ADMIN = "casamento2026"
@@ -145,5 +145,7 @@ def presente_pagamento(valor):
         qr=qr
     )
 
+import os
+
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 5000)))
