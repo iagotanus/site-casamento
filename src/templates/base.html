@@ -11,6 +11,11 @@
         rel="stylesheet"
     />
 
+    <!-- Google Font Regular 400-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+
     <!-- Tailwind CSS -->
     <link
         rel="stylesheet"
@@ -59,8 +64,8 @@
 
     <!-- HERO / HEADER -->
     <header
-        class="relative bg-cover bg-center"
-        style="height: 80vh; background-image: url('{{ url_for('static', filename='images/casal.jpg') }}');"
+        class="relative bg-cover bg-center flex items-center justify-center"
+        style="height: 80vh; background-image: url('{{ url_for('static', filename='images/casal.jpg') }}'); background-position: center 75%;"
     >
         <!-- Overlay escuro -->
         <div class="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -69,7 +74,7 @@
         <div class="relative z-10 flex flex-col items-center justify-center h-full text-center text-white px-6">
 
             <!-- Nome do casal com fonte brush -->
-            <h1 class="text-6xl md:text-7xl font-brush drop-shadow-lg">
+            <h1 style="font-family: 'Great Vibes', cursive; font-size: 120px;">
                 Giovanna e Iago
             </h1>
 
@@ -97,6 +102,14 @@
                     Padrinhos
                 </a>
             </nav>
+            <div class="mt-4">
+            <button 
+                onclick="abrirConvite()"
+                class="bg-white text-pink-600 hover:bg-gray-100 px-6 py-2 rounded-lg shadow font-semibold"
+            >
+                💌 Ver convite
+            </button>
+            </div>
         </div>
     </header>
 
@@ -109,6 +122,51 @@
     <footer class="bg-pink-200 text-center p-4 mt-6">
         <p>Feito com ❤️ para nosso grande dia</p>
     </footer>
+    <!-- MODAL CONVITE -->
+    <div 
+        id="modalConvite" 
+        class="fixed inset-0 bg-black bg-opacity-80 hidden items-center justify-center z-50"
+    >
+        <!-- Conteúdo -->
+        <div class="relative max-w-5xl w-full mx-4">
+            
+            <!-- Botão fechar -->
+            <button 
+                onclick="fecharConvite()"
+                class="absolute -top-10 right-0 text-white text-3xl"
+            >
+                ✕
+            </button>
 
+            <!-- Imagem -->
+            <img 
+                src="{{ url_for('static', filename='images/convite.svg') }}"
+                alt="Convite de casamento"
+                class="w-full object-contain rounded-lg shadow-lg bg-white"
+                style="max-height: 100vh;"
+            >
+        </div>
+    </div>
+    <script>
+    function abrirConvite() {
+        const modal = document.getElementById("modalConvite");
+        modal.classList.remove("hidden");
+        modal.classList.add("flex");
+    }
+
+    function fecharConvite() {
+        const modal = document.getElementById("modalConvite");
+        modal.classList.add("hidden");
+        modal.classList.remove("flex");
+    }
+
+    // fechar ao clicar fora
+    document.addEventListener("click", function(event) {
+        const modal = document.getElementById("modalConvite");
+        if (event.target === modal) {
+            fecharConvite();
+        }
+    });
+    </script>
 </body>
 </html>
