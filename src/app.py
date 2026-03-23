@@ -144,8 +144,10 @@ def presente_pagamento(valor):
         350: "pix_350.jpeg",
         400: "pix_400.jpeg",
         500: "pix_500.jpeg",
+        600: "pix_600.jpeg",
         650: "pix_650.jpeg",
         700: "pix_700.jpeg",
+        1000: "pix_1000.jpeg",
     }
 
     qr = qrs_disponiveis.get(valor)
