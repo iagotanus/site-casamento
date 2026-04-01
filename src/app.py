@@ -3,6 +3,7 @@ import pandas as pd
 from io import BytesIO
 import os
 import requests
+import json
 
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "fallback")
@@ -11,11 +12,8 @@ app.secret_key = os.environ.get("SECRET_KEY", "fallback")
 SENHA_ADMIN = "casamento2026"
 
 # Lista de convidados (exemplo)
-convidados_registrados = [
-    {"nome": "Rosalina Camacho Tanus Ferreira"},
-    {"nome": "Maria Souza"},
-    {"nome": "Ana Oliveira"},
-]
+with open("src/static/convidados.json", "r", encoding="utf-8") as f:
+    convidados_registrados = json.load(f)["convidados"]
 confirmacoes = []
 
 @app.route("/")
