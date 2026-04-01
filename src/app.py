@@ -12,7 +12,7 @@ app.secret_key = os.environ.get("SECRET_KEY", "fallback")
 SENHA_ADMIN = "casamento2026"
 
 # Lista de convidados (exemplo)
-with open("src/static/convidados.json", "r", encoding="utf-8") as f:
+with open("static/convidados.json", "r", encoding="utf-8") as f:
     convidados_registrados = json.load(f)["convidados"]
 confirmacoes = []
 
