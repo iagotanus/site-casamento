@@ -18,8 +18,8 @@
 
 <form method="POST" class="max-w-md mx-auto bg-white p-6 rounded-lg shadow">
     
-    <label class="block mb-2">Selecione seu nome:</label>
-    <select name="nome" required class="w-full border p-2 mb-4">
+    <label class="block mb-2">Selecione seu nome (digite para pesquisar):</label>
+    <select id="nome" name="nome" required class="w-full border p-2 mb-4">
         <option value="">Escolha...</option>
         {% for c in convidados %}
             <option value="{{ c.nome }}">{{ c.nome }}</option>
@@ -49,5 +49,21 @@
 
     </div>
 </form>
+
+<!-- Tom Select -->
+<link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+
+<script>
+    new TomSelect("#nome", {
+        create: false,
+        sortField: {
+            field: "text",
+            direction: "asc"
+        },
+        placeholder: "Digite para pesquisar..."
+    });
+</script>
 
 {% endblock %}
