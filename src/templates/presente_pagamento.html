@@ -21,10 +21,60 @@
         class="mx-auto w-64 h-64 object-contain"
     >
 
+    <div class="mt-6 space-y-4">
+        {% for destinatario, codigo in [("Iago", codigo_pix_iago), ("Giovanna", codigo_pix_giovanna)] %}
+        {% if loop.first %}
+        <p class="text-sm text-gray-600">Caso prefira, pode contribuir com um pix para algum dos noivos.</p>
+        {% endif %}
+        <div>
+            <label for="codigo-pix-{{ loop.index }}" class="block mb-2 font-semibold text-gray-700">
+                PIX copia e cola para {{ destinatario }}
+            </label>
+            <div class="flex gap-2">
+                <input
+                    id="codigo-pix-{{ loop.index }}"
+                    type="text"
+                    value="{{ codigo }}"
+                    placeholder="Código PIX indisponível"
+                    readonly
+                    class="min-w-0 flex-1 border border-gray-300 rounded px-3 py-2 text-sm"
+                >
+                <button
+                    type="button"
+                    data-copy-target="codigo-pix-{{ loop.index }}"
+                    {% if not codigo %}disabled{% endif %}
+                    class="bg-pink-500 hover:bg-pink-600 disabled:bg-gray-300 text-white px-4 py-2 rounded font-semibold"
+                >
+                    Copiar
+                </button>
+            </div>
+            <p id="status-copia-{{ loop.index }}" class="mt-2 text-sm text-gray-600" role="status" aria-live="polite"></p>
+        </div>
+        {% endfor %}
+    </div>
+
     <p class="mt-6 text-sm text-gray-500">
         Após o pagamento, não é necessário enviar comprovante.
         Já ficaremos muito felizes com seu carinho ❤️
     </p>
 </div>
+
+<script>
+    document.querySelectorAll("[data-copy-target]").forEach(function (botao) {
+        botao.addEventListener("click", async function () {
+            const campo = document.getElementById(botao.dataset.copyTarget);
+            const status = botao.parentElement.parentElement.querySelector("[role='status']");
+
+            try {
+                await navigator.clipboard.writeText(campo.value);
+                status.textContent = "Código copiado!";
+            } catch (error) {
+                campo.select();
+                const copiado = document.execCommand("copy");
+                status.textContent = copiado ? "Código copiado!" : "Não foi possível copiar o código.";
+            }
+        });
+    });
+</script>
 
 {% endblock %}
