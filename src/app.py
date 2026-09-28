@@ -156,7 +156,9 @@ def presente_pagamento(valor):
     return render_template(
         "presente_pagamento.html",
         valor=valor,
-        qr=qr
+        qr=qr,
+        codigo_pix_iago=os.environ.get("PIX_IAGO_COPIA_E_COLA", ""),
+        codigo_pix_giovanna=os.environ.get("PIX_GIOVANNA_COPIA_E_COLA", "")
     )
 
 if __name__ == "__main__":
