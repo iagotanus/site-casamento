@@ -20,7 +20,7 @@ confirmacoes = []
 def index():
     return render_template("index.html")
 
-@app.route("/rsvp", methods=["GET", "POST"])
+@app.route("/rsvp-pos-data", methods=["GET", "POST"])
 def rsvp():
     if request.method == "POST":
         nome = request.form.get("nome")
